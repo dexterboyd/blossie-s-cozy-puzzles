@@ -14,12 +14,22 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const getRouterBasename = () => {
+  // Prefer Vite's BASE_URL when correctly configured.
+  const baseFromVite = import.meta.env.BASE_URL;
+  if (baseFromVite && baseFromVite !== "/") return baseFromVite;
+
+  // Fallback for GitHub Pages when the app is served from a repo subpath.
+  const repoBase = "/blossie-s-cozy-puzzles/";
+  return window.location.pathname.startsWith(repoBase) ? repoBase : "/";
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <BrowserRouter basename={getRouterBasename()}>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
