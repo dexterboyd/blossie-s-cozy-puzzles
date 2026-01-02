@@ -66,7 +66,7 @@ export const puzzles: Puzzle[] = [
     pieces: 750,
     description: "Adorable forest animals preparing for fall among the changing leaves.",
     price: 22.99,
-    image: "https://images.unsplash.com/photo-1474511320723-9a56873571b7?w=500&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=500&h=500&fit=crop",
   },
   {
     id: 8,
